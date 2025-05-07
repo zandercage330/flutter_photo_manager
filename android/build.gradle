@@ -129,9 +129,18 @@ android {
     }
 
     compileOptions {
-        def version = getJavaVersion()
-        sourceCompatibility = version
-        targetCompatibility = version
+        // Remove the dynamic version detection
+        // def version = getJavaVersion()
+        // sourceCompatibility = version
+        // targetCompatibility = version
+        // Hardcode to Java 11
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    // Ensure kotlinOptions block exists and sets jvmTarget
+    kotlinOptions {
+        jvmTarget = '11'
     }
 
     defaultConfig {
